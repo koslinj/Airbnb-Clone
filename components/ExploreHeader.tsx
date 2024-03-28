@@ -36,7 +36,11 @@ const categories = [
   },
 ];
 
-const ExploreHeader = () => {
+interface Props {
+  onCategoryChanged: (category: string) => void
+}
+
+const ExploreHeader = ({ onCategoryChanged }: Props) => {
   const scrollRef = useRef<ScrollView>(null)
   const itemsRef = useRef<Array<TouchableOpacity | null>>([])
   const [activeIndex, setActiveIndex] = useState(0)
@@ -47,11 +51,12 @@ const ExploreHeader = () => {
 
     if (scrollRef.current) {
       selected?.measureLayout(scrollRef.current.getScrollableNode(), (x) => {
-        scrollRef.current?.scrollTo({ x: x-16, animated: true });
+        scrollRef.current?.scrollTo({ x: x - 16, animated: true });
       })
     }
 
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)
+    onCategoryChanged(categories[index].name)
   }
 
   return (
@@ -73,6 +78,7 @@ const ExploreHeader = () => {
       </View>
 
       <ScrollView
+        overScrollMode='never'
         ref={scrollRef}
         horizontal
         showsHorizontalScrollIndicator={false}
@@ -150,7 +156,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingBottom: 10,
-    paddingTop: 6,
     paddingHorizontal: 14
   },
   categoriesBtnActive: {
@@ -161,7 +166,6 @@ const styles = StyleSheet.create({
     borderBottomColor: '#000',
     borderBottomWidth: 2,
     paddingBottom: 10,
-    paddingTop: 6,
     paddingHorizontal: 14
   },
 })
