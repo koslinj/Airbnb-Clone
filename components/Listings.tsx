@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import { defaultStyles } from '@/constants/Styles'
 import { Link } from 'expo-router'
 import { Ionicons } from '@expo/vector-icons'
+import Animated, { FadeIn, FadeInRight, FadeOutLeft } from "react-native-reanimated"
 
 interface Props {
   listings: any[]
@@ -24,7 +25,8 @@ const Listings = ({ category, listings: items }: Props) => {
   const renderRow: ListRenderItem<any> = ({ item }) => (
     <Link href={`/listing/${item.id}`} asChild>
       <TouchableOpacity>
-        <View style={styles.listing}>
+
+        <Animated.View style={styles.listing} entering={FadeInRight}>
           <Image source={{ uri: item.medium_url }} style={styles.image} />
           <TouchableOpacity style={{ position: 'absolute', right: 26, top: 26, backgroundColor: '#ffffffe0', borderRadius: 30, justifyContent: 'center', padding: 5 }}>
             <Ionicons name='heart-outline' size={26} color='#000' />
@@ -44,7 +46,7 @@ const Listings = ({ category, listings: items }: Props) => {
             <Text style={{ fontFamily: 'mon-sb' }}>€ {item.price}</Text>
             <Text style={{ fontFamily: 'mon' }}>night</Text>
           </View>
-        </View>
+        </Animated.View>
       </TouchableOpacity>
     </Link>
   )
