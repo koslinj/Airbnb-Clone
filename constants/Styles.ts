@@ -32,12 +32,11 @@ export const defaultStyles = StyleSheet.create({
   },
   footer: {
     position: 'absolute',
-    height: 100,
     bottom: 0,
     left: 0,
     right: 0,
     backgroundColor: '#fff',
-    paddingVertical: 10,
+    paddingVertical: 16,
     paddingHorizontal: 20,
     borderTopColor: Colors.grey,
     borderTopWidth: StyleSheet.hairlineWidth,
