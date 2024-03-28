@@ -9,7 +9,7 @@ interface Props {
 const Listings = ({ category, listings }: Props) => {
 
   useEffect(() => {
-    console.log("CHANGED")
+    console.log("CHANGED", listings.length)
   }, [category])
 
   return (
