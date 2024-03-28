@@ -7,7 +7,9 @@ import listingsData from "@/assets/data/airbnb-listings.json"
 
 const Page = () => {
   const [category, setCategory] = useState("Tiny homes")
-  const items = useMemo(() => listingsData as any, [])
+  const items = useMemo(() => {
+    return (listingsData as any[]).filter(item => item.medium_url !== null)
+  }, [])
 
   const onDataChanged = (category: string) => {
     setCategory(category)
