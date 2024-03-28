@@ -32,7 +32,6 @@ const Page = () => {
 
     try {
       const { createdSessionId, setActive } = await selectedAuth()
-      console.log(createdSessionId)
 
       if (createdSessionId) {
         setActive!({ session: createdSessionId })
