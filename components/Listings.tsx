@@ -1,18 +1,19 @@
 import { View, Text, FlatList, ListRenderItem, TouchableOpacity, StyleSheet, Image } from 'react-native'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { memo, useEffect, useRef, useState } from 'react'
 import { defaultStyles } from '@/constants/Styles'
 import { Link } from 'expo-router'
 import { Ionicons } from '@expo/vector-icons'
 import Animated, { FadeIn, FadeInRight, FadeOutLeft } from "react-native-reanimated"
+import { BottomSheetFlatList, BottomSheetFlatListMethods } from "@gorhom/bottom-sheet";
 
 interface Props {
   listings: any[]
   category: string
 }
 
-const Listings = ({ category, listings: items }: Props) => {
+const Listings = memo(({ category, listings: items }: Props) => {
   const [loading, setLoading] = useState(false)
-  const listRef = useRef<FlatList>(null)
+  const listRef = useRef<BottomSheetFlatListMethods>(null)
 
   useEffect(() => {
     setLoading(true)
@@ -53,14 +54,19 @@ const Listings = ({ category, listings: items }: Props) => {
 
   return (
     <View style={defaultStyles.container}>
-      <FlatList
+      <BottomSheetFlatList
         renderItem={renderRow}
         ref={listRef}
         data={loading ? [] : items}
+        ListHeaderComponent={
+          <Text style={styles.info}>
+            {items.length} Homes
+          </Text>
+        }
       />
     </View>
   )
-}
+})
 
 const styles = StyleSheet.create({
   listing: {
@@ -73,6 +79,11 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 300,
     borderRadius: 12
+  },
+  info: {
+    textAlign: 'center',
+    fontFamily: 'mon-sb',
+    fontSize: 16
   }
 })
 
