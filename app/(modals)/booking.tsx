@@ -9,7 +9,7 @@ import { Ionicons } from '@expo/vector-icons'
 const Page = () => {
   const router = useRouter()
 
-  const onCLearAll = () => {
+  const onClearAll = () => {
 
   }
 
@@ -19,7 +19,7 @@ const Page = () => {
 
       <Animated.View style={defaultStyles.footer} entering={SlideInDown.duration(600)}>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-          <TouchableOpacity onPress={onCLearAll}>
+          <TouchableOpacity onPress={onClearAll}>
             <Text style={{ fontSize: 18, fontFamily: 'mon-sb', textDecorationLine: 'underline' }}>Clear all</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => router.back()} style={[defaultStyles.btn, { paddingHorizontal: 10, gap: 6, flexDirection: 'row' }]}>
