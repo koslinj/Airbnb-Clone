@@ -38,10 +38,10 @@ const Page = () => {
   const router = useRouter()
   const [openCard, setOpenCard] = useState(0)
   const [selectedPlace, setSelectedPlace] = useState(0)
-  const [groups, setGroups] = useState(guestsGropus)
+  const [groups, setGroups] = useState(JSON.parse(JSON.stringify(guestsGropus)))
 
   const onClearAll = () => {
-    setGroups(guestsGropus.map(item => ({ ...item, count: 0 })))
+    setGroups(JSON.parse(JSON.stringify(guestsGropus)))
     setSelectedPlace(0)
     setOpenCard(0)
   }
