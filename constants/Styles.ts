@@ -1,6 +1,97 @@
 import Colors from '@/constants/Colors';
 import { Platform, StatusBar, StyleSheet } from 'react-native';
 
+export const bookingStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 60,
+  },
+  card: {
+    backgroundColor: '#fff',
+    borderRadius: 14,
+    margin: 10,
+    elevation: 4,
+    shadowColor: '#000',
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    shadowOffset: {
+      width: 2,
+      height: 2,
+    },
+    gap: 20,
+  },
+  cardHeader: {
+    fontFamily: 'mon-b',
+    fontSize: 24,
+    paddingVertical: 20,
+  },
+  cardBody: {
+    paddingBottom: 20,
+  },
+  cardPreview: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 20,
+  },
+  searchSection: {
+    height: 50,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderWidth: 1,
+    borderColor: '#ABABAB',
+    borderRadius: 8,
+    marginBottom: 16,
+  },
+  searchIcon: {
+    padding: 10,
+  },
+  inputField: {
+    flex: 1,
+    padding: 10,
+    backgroundColor: '#fff',
+    marginRight: 6
+  },
+  placesContainer: {
+    flexDirection: 'row',
+    gap: 25,
+  },
+  place: {
+    width: 120,
+    height: 120,
+    borderRadius: 10,
+  },
+  placeSelected: {
+    borderColor: Colors.grey,
+    borderWidth: 2,
+    borderRadius: 10,
+    width: 120,
+    height: 120,
+  },
+  previewText: {
+    fontFamily: 'mon-sb',
+    fontSize: 14,
+    color: Colors.grey,
+  },
+  previewdData: {
+    fontFamily: 'mon-sb',
+    fontSize: 14,
+    color: Colors.dark,
+  },
+
+  guestItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 16,
+  },
+  itemBorder: {
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: Colors.grey,
+  },
+});
+
 export const defaultStyles = StyleSheet.create({
   container: {
     flex: 1,
