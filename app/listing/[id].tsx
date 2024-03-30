@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, Dimensions, Image, TouchableOpacity, Share } fr
 import React, { useLayoutEffect } from 'react'
 import { useLocalSearchParams, useNavigation } from 'expo-router'
 import listingsData from "@/assets/data/airbnb-listings.json"
-import Animated, { interpolate, useAnimatedRef, useAnimatedStyle, useScrollViewOffset } from 'react-native-reanimated'
+import Animated, { SlideInDown, interpolate, useAnimatedRef, useAnimatedStyle, useScrollViewOffset } from 'react-native-reanimated'
 import Colors from '@/constants/Colors'
 import { Ionicons } from '@expo/vector-icons'
 import { defaultStyles } from '@/constants/Styles'
@@ -122,7 +122,7 @@ const Page = () => {
         </View>
       </Animated.ScrollView>
 
-      <Animated.View style={defaultStyles.footer}>
+      <Animated.View style={defaultStyles.footer} entering={SlideInDown.duration(600)}>
         <View
           style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
           <TouchableOpacity style={styles.footerText}>
