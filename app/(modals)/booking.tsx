@@ -1,12 +1,20 @@
-import { View, Text } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
+import { BlurView } from 'expo-blur'
 
 const Page = () => {
   return (
-    <View>
-      <Text>Booking</Text>
-    </View>
+    <BlurView intensity={70} style={styles.container}>
+      <Text>Book</Text>
+    </BlurView>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 60
+  }
+})
 
 export default Page
